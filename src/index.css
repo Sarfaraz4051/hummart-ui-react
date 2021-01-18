@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.footer{
+  max-width:100%;
+  display:flex;
+  justify-content: space-around;
+  color: #7B858A;
+  background-color: #292929;
+  
+}
+.block{
+  margin-top: 10vh;
+  margin-bottom : 10vh;
+  
+}
+.block-title{
+  color:white;
+  padding: 10px 0 10px 0;
+}
+.block-content{
+  flex-direction: column;
+
+}
+.block-content a{
+  color:#A8A8A8;
+  text-decoration: none;
+}
+.block-content a:hover{
+  color:#A8A8A8;
+  text-decoration: underline;
+}
