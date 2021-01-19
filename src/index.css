@@ -184,7 +184,17 @@ code {
 }
 
 
+.myProductSt{
+  display: flex;
+  flex-direction: column;
+}
+.outer-divProduct{
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
+}
 .button4{
   border-radius:30px;
   background-color: #f4511e;

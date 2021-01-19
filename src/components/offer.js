@@ -3,16 +3,16 @@ import '../index.css';
 
 
 const Offer=(props)=>{
-    
+    console.log({props});
     return (
-    <div>
+    <div className="myProductSt">
         <div>
-            <img src={import(props.obj.img_src)} alt="offer1"/>
+            <img src='' alt="Offer_image"/>
         </div>
         <div>
             {props.obj.title}
         </div>
-        <div>
+        <div className="outer-divProduct">
             <div>
                 <del>{props.obj.old_price}</del>{props.obj.new_price}
             </div>
