@@ -118,7 +118,7 @@ const Footer = () => {
 
             </div>{/* end footer class here*/}
 
-            <div className="footer-two">
+            <div className="footer-two container">
                 <div>
                     ©Hummart.com 2020. All Rights Reserved
                     Powered By <Link to="https://www.matechco.com/">Matech CO</Link>

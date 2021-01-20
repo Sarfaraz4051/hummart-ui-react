@@ -28,11 +28,11 @@ import offer5 from '../images/offers/5.jpg';
 */}
 
 
- 
+
 const Header = () => {
     const [showinfo, setShowinfo] = useState(false);
-    
-    
+
+
     return (
         <>
             <div className="upperbar">
@@ -255,8 +255,8 @@ const Header = () => {
                 </div>
             </div>{/* End info div */}
 
-            
-            
+
+
 
         </>
     )

@@ -3,9 +3,9 @@ import '../index.css';
 
 const Offer=(props)=>{
     return (
-    <div >
-        <div>
-            <img src={require('../' + props.obj.img_src)} alt="Offer_image"/>
+    <div>
+        <div >
+            <img src= {`offers/${props.obj.img_src}`} className="offers-images" alt="Offer_image"/>
         </div>
         <div>
             {props.obj.title}
