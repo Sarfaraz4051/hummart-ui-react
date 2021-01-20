@@ -26,7 +26,6 @@ function App() {
           {
             getLocalStorageData('myoffers').map((offer, index) => {
               return  <Offer key={index} obj={offer} />
-              
             })
           }
         </div>

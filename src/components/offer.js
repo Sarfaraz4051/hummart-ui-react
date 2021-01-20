@@ -1,14 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import '../index.css';
 
 const Offer=(props)=>{
     return (
     <div>
         <div >
-            <img src= {`offers/${props.obj.img_src}`} className="offers-images" alt="Offer_image"/>
+            <Link to="#">   
+                <img src= {`offers/${props.obj.img_src}`} className="offers-images" alt="Offer_image"/>
+            </Link>
         </div>
         <div>
-            {props.obj.title}
+            <Link to="#">   
+                {props.obj.title}
+            </Link>
         </div>
         <div className="outer-divProduct">
             <div>
