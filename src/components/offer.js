@@ -1,13 +1,11 @@
 import React from "react";
 import '../index.css';
 
-
 const Offer=(props)=>{
-    console.log({props});
     return (
-    <div className="myProductSt">
+    <div >
         <div>
-            <img src='' alt="Offer_image"/>
+            <img src={require('../' + props.obj.img_src)} alt="Offer_image"/>
         </div>
         <div>
             {props.obj.title}

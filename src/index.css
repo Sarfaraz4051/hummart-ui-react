@@ -129,6 +129,7 @@ code {
   display: flex;
   
 }
+
 .mySlides {
     display: none
 }
@@ -184,16 +185,23 @@ code {
 }
 
 
-.myProductSt{
+.bundle-offers{
   display: flex;
   flex-direction: column;
+  background-color: #ececec;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  padding: 20px;
+}
+.myProductSt{
+  display: flex;
+  flex-direction: row; 
 }
 .outer-divProduct{
-  width: 20%;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 .button4{
   border-radius:30px;
