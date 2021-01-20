@@ -4,14 +4,14 @@ import '../index.css';
 
 const Offer=(props)=>{
     return (
-    <div>
+    <div >
         <div >
-            <Link to="#">   
+            <Link to="#" className="offer-link">   
                 <img src= {`offers/${props.obj.img_src}`} className="offers-images" alt="Offer_image"/>
             </Link>
         </div>
         <div>
-            <Link to="#">   
+            <Link to="#" className="offer-link">   
                 {props.obj.title}
             </Link>
         </div>

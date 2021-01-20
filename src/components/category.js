@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-    AiOutlineCaretRight
+    AiOutlineRight
 } from "react-icons/ai";
 
 const Category = (props) => {
@@ -20,7 +20,7 @@ const Category = (props) => {
                 </p>
             </div>
             <div>
-                <AiOutlineCaretRight />
+                <AiOutlineRight />
             </div>
         </div>
         </Link>

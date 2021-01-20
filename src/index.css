@@ -193,8 +193,19 @@ code {
 }
 .myProductSt{
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
+   
 }
+.offer-link{
+  color:black;
+  text-decoration: none;
+}
+
+.offer-link:hover{
+  
+  text-decoration: underline;;
+}
+
 .outer-divProduct{
 
   display: flex;
