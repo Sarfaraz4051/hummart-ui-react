@@ -1,32 +1,15 @@
 import React, { useState } from "react";
 import '../index.css';
 import SearchBar from './searchBar';
+import Slidesshow from './slideshow';
 import { Link } from 'react-router-dom';
 import {
-    AiOutlinePhone, AiOutlineShoppingCart, AiOutlineLeft, AiOutlineRight, AiFillCar, AiFillMoneyCollect, AiTwotonePhone
+    AiOutlinePhone, AiOutlineShoppingCart, AiFillCar, AiFillMoneyCollect, AiTwotonePhone
 } from "react-icons/ai";
 import hummartLogo from '../images/humlogo.png';
 import toysGif from '../images/Toys_Gif.gif';
-{/* 
 import pic1 from '../images/pic1.jpg';
 import pic2 from '../images/pic2.jpg';
-import pic3 from '../images/pic3.jpg';
-import pic4 from '../images/pic4.jpg';
-import pic5 from '../images/pic5.jpg';
-import pic6 from '../images/pic6.jpg';
-import pic7 from '../images/pic7.jpg';
-import pic8 from '../images/pic8.jpg';
-import pic9 from '../images/pic9.jpg';
-import pic10 from '../images/pic10.jpg';
-import pic11 from '../images/pic11.jpg';
-
-import offer1 from '../images/offers/1.jpg';
-import offer2 from '../images/offers/2.jpg';
-import offer3 from '../images/offers/3.jpg';
-import offer4 from '../images/offers/4.jpg';
-import offer5 from '../images/offers/5.jpg';
-*/}
-
 
 
 const Header = () => {
@@ -131,11 +114,11 @@ const Header = () => {
                     </div>
                 }
             </div>
+            
 
-
-            {/* 
-                <div className="offers">
-                    <div className="side-pics">
+             
+                <div className="offers container">
+                    <div className="side-pics ">
                         <div>
                             <img src={pic1} alt="Pic1" />
                         </div>
@@ -144,63 +127,10 @@ const Header = () => {
                         </div>
                     </div>
 
-
                     <div className="slideshow-container">
-
-                        <div className="mySlides fade">
-                            <img src={pic3} alt="Pic3" />
-                        </div>
-
-                        <div className="mySlides fade">
-                            <img src={pic4} alt="Pic4" />
-                        </div>
-
-                        <div className="mySlides fade">
-                            <img src={pic5} alt="Pic5" />
-                        </div>
-
-                        <div className="mySlides fade">
-                            <img src={pic6} alt="Pic6" />
-                        </div>
-
-                        <div className="mySlides fade">
-                            <img src={pic7} alt="Pic7" />
-                        </div>
-                        <div className="mySlides fade">
-                            <img src={pic8} alt="Pic8" />
-                        </div>
-
-                        <div className="mySlides fade">
-                            <img src={pic9} alt="Pic9" />
-                        </div>
-
-                        <div className="mySlides fade">
-                            <img src={pic10} alt="Pic10" />
-                        </div>
-
-                        <div className="mySlides fade">
-                            <img src={pic11} alt="Pic11" />
-                        </div>
-
-
-                        <div >
-                            <span className="dot" onClick="currentSlide(1)"></span>
-                            <span className="dot" onClick="currentSlide(2)"></span>
-                            <span className="dot" onClick="currentSlide(3)"></span>
-                            <span className="dot" onClick="currentSlide(4)"></span>
-                            <span className="dot" onClick="currentSlide(5)"></span>
-                            <span className="dot" onClick="currentSlide(6)"></span>
-                            <span className="dot" onClick="currentSlide(7)"></span>
-                            <span className="dot" onClick="currentSlide(8)"></span>
-                            <span className="dot" onClick="currentSlide(9)"></span>
-                        </div>
-
-                        <Link className="prev" onClick="plusSlides(-1)"><AiOutlineLeft /></Link>
-                        <Link className="next" onClick="plusSlides(1)"><AiOutlineRight /></Link>
+                      <Slidesshow />
                     </div>
-
-
-            </div>*/}
+            </div>
 
 
 

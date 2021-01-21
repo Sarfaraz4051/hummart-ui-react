@@ -127,6 +127,7 @@ code {
 
 .offers{
   display: flex;
+  flex-direction: row;
 }
 .mySlides {
     display: none
@@ -138,7 +139,8 @@ code {
 }
 .side-pics{
   flex-direction: column;
-  border: 1px black;
+  align-content: space-between;
+  border: 5px solid black;
 }
 .fade {
   -webkit-animation-name: fade;
@@ -207,7 +209,6 @@ code {
 }
 
 .outer-divProduct{
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -248,6 +249,24 @@ code {
   margin-bottom: 0%;
 }
 
+
+
+
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 350px;
+  max-width: 100%;
+}
+
+.each-slide span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+}
 .footer{
   max-width:100%;
   display:flex;

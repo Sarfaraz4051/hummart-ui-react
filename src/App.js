@@ -1,4 +1,4 @@
-import React,{Link} from "react";
+import React from "react";
 import './App.css';
 import Footer from './components/footer';
 import Header from './components/header';
@@ -10,7 +10,7 @@ function App() {
   
   setLocalStorageData('myoffers', offers_data);
   setLocalStorageData('categories', categories_data);
-  console.log(getLocalStorageData('categories'));
+
   return (
     <div className="App">
       <Header />
@@ -31,7 +31,6 @@ function App() {
         </div>
       </div>
 
-
       <div className="bg-color">
         <div>
           <h3>Categories</h3>
@@ -39,13 +38,13 @@ function App() {
         <div>
         {
           getLocalStorageData('categories').map((category,index)=>{
-            //<Link to="#">
-              return  <Category key={index} obj={category}/>
-            //</Link>    
+            return(
+                
+                <Category key={index} obj={category}/>
+                )    
           })
         }
         </div>
-
       </div>
 
 
