@@ -16,11 +16,8 @@ code {
 .container{
   margin-left: 150px;
   margin-right: 150px;
-  max-width:100%;
-  margin-bottom: 20px;
-  padding: 20px;
+  max-width: 100%;
 }
-
 
 .upperbar{
   background-color: black;
@@ -81,31 +78,36 @@ code {
   cursor: pointer;
 }
 
-.nav{
-  background-color: #7bae23; 
-  padding: 2px;
-
+.nav-header{
+  background-color: #7bae23;
+  color:white; 
   font-size: smaller;
+  padding: 2px;
 }
-.nav > ul{
-  list-style: none;
+
+.nav-bar-links{
+  list-style-type: none;
+  padding: 0px;
   display: flex;
-  justify-content: space-around;
-  
+  justify-content: space-between;
 }
-.nav > ul >li>a
-{
-  
+
+.plain-white-link,.plain-white-link:hover{
   color:white;
   text-decoration: none;
 }
 
+.plain-black-link,.plain-black-link:hover{
+  color:black;
+  text-decoration: none;
+}
 .sub-menu{
   /* display: none; */
   border-top:5px solid blue;
   background-color: #ececec;
   color:rgb(66, 65, 65);
 }
+
 .menu-row{
   display: flex;
   justify-content: space-between;
@@ -129,18 +131,12 @@ code {
   display: flex;
   flex-direction: row;
 }
-.mySlides {
-    display: none
-}
-.slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-}
 .side-pics{
+  border: 1px solid #ececec;
+  display: flex;
   flex-direction: column;
-  align-content: space-between;
-  border: 5px solid black;
+  justify-content: space-between;
+  
 }
 .fade {
   -webkit-animation-name: fade;

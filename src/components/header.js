@@ -11,10 +11,8 @@ import toysGif from '../images/Toys_Gif.gif';
 import pic1 from '../images/pic1.jpg';
 import pic2 from '../images/pic2.jpg';
 
-
 const Header = () => {
     const [showinfo, setShowinfo] = useState(false);
-
 
     return (
         <>
@@ -25,8 +23,8 @@ const Header = () => {
 
             <div className="upperbar-two">
                 <AiOutlinePhone />
-                        (021) 111 116 278
-                    <Link to="#">Customer Care</Link>
+                    (021) 111 116 278
+                <Link to="#">Customer Care</Link>
                 <Link to="#">Login</Link>
             </div>
 
@@ -34,7 +32,6 @@ const Header = () => {
                 <div>
                     <img src={hummartLogo} alt="HummartLogo" />
                 </div>
-
                 <div>
                     <SearchBar />
                 </div>
@@ -45,39 +42,38 @@ const Header = () => {
                     <AiOutlineShoppingCart />
                 </div>
             </div>
+            <div className="container">
+                <div className="nav-header ">
+                    <ul className="nav-bar-links">
+                        <li>
+                            <Link to="#" className="plain-white-link">GROCERY & STAPLES</Link>
+                        </li>
+                        <li>
+                            <Link to="#" className="plain-white-link">NOODLES SAUCES & FROZEN FOODS</Link>
+                        </li>
+                        <li>
+                            <Link to="#" className="plain-white-link">BISCUITS SNACKS & CHOCOLATES</Link>
+                        </li>
+                        <li>
+                            <Link to="#" className="plain-white-link">BREAKFAST & DAIRY</Link>
+                        </li>
+                        <li>
+                            <Link to="#" className="plain-white-link">BABY KIDS & TOYS</Link>
+                        </li>
+                        <li>
+                            <Link to="#" className="plain-white-link">BEVERAGES</Link>
+                        </li>
+                        <li>
+                            <Link to="#" className="plain-white-link" onMouseOver={() => {
+                                setShowinfo(true);
 
-            <div className="nav container">
-                <ul>
-                    <li>
-                        <Link to="#">GROCERY & STAPLES</Link>
-                    </li>
-                    <li>
-                        <Link to="#">NOODLES SAUCES & FROZEN FOODS</Link>
-                    </li>
-                    <li>
-                        <Link to="#">BISCUITS SNACKS & CHOCOLATES</Link>
-                    </li>
-                    <li>
-                        <Link to="#">BREAKFAST & DAIRY</Link>
-                    </li>
-                    <li>
-                        <Link to="#">BABY KIDS & TOYS</Link>
-                    </li>
-                    <li>
-                        <Link to="#">BEVERAGES</Link>
-                    </li>
-                    <li>
-                        <Link to="#" onMouseOver={() => {
-                            setShowinfo(true);
+                            }} onMouseOut={() => {
+                                setShowinfo(false);
+                            }}>MORE</Link>
+                        </li>
 
-                        }} onMouseOut={() => {
-                            setShowinfo(false);
-                        }}>MORE</Link>
-                    </li>
-
-                </ul>
-
-
+                    </ul>
+                </div>
                 {showinfo &&
                     <div className="sub-menu">
                         <div className="menu-row">
@@ -113,27 +109,18 @@ const Header = () => {
                         </div>
                     </div>
                 }
-            </div>
-            
 
-             
-                <div className="offers container">
-                    <div className="side-pics ">
-                        <div>
-                            <img src={pic1} alt="Pic1" />
-                        </div>
-                        <div>
-                            <img src={pic2} alt="Pic2" />
-                        </div>
-                    </div>
-
-                    <div className="slideshow-container">
-                      <Slidesshow />
-                    </div>
             </div>
 
-
-
+            <div className="offers container">
+                <div className="side-pics">
+                    <img src={pic1} alt="Pic1" />
+                    <img src={pic2} alt="Pic2" />
+                </div>
+                <div >
+                    <Slidesshow />
+                </div>
+            </div>
 
             <div className="info">
                 <div className="info-block ">
@@ -184,10 +171,6 @@ const Header = () => {
                     </div>
                 </div>
             </div>{/* End info div */}
-
-
-
-
         </>
     )
 }

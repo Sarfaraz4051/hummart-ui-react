@@ -5,12 +5,23 @@ import Header from './components/header';
 import Offer from './components/offer';
 import Category from './components/category';
 import { setLocalStorageData, getLocalStorageData } from './service';
-import {offers_data,categories_data} from './data'
-function App() {
-  
+import { offers_data, categories_data } from './data'
+
+const CategoriesList = () => {
+  return getLocalStorageData('categories').map((category, index) => {
+    return (
+
+      <Category key={index} obj={category} />
+    )
+  })
+}
+
+const App = () => {
+
   setLocalStorageData('myoffers', offers_data);
   setLocalStorageData('categories', categories_data);
 
+  
   return (
     <div className="App">
       <Header />
@@ -25,7 +36,7 @@ function App() {
         <div className="myProductSt">
           {
             getLocalStorageData('myoffers').map((offer, index) => {
-              return  <Offer key={index} obj={offer} />
+              return <Offer key={index} obj={offer} />
             })
           }
         </div>
@@ -36,14 +47,7 @@ function App() {
           <h3>Categories</h3>
         </div>
         <div>
-        {
-          getLocalStorageData('categories').map((category,index)=>{
-            return(
-                
-                <Category key={index} obj={category}/>
-                )    
-          })
-        }
+          <CategoriesList />
         </div>
       </div>
 
