@@ -10,6 +10,7 @@ import { offers_data, categories_data } from "./data";
 const CategoriesList = () => {
   return getLocalStorageData("categories").map((category, index) => {
     return <Category key={index} obj={category} />;
+
   });
 };
 
@@ -25,20 +26,21 @@ const App = () => {
           <h3>NEW BUNDLE OFFERS </h3>
         </div>
         <div className="myProductSt">
-          
           {getLocalStorageData("myoffers").map((offer, index) => {
             return <Offer key={index} obj={offer} />;
           })}
         </div>
       </div>
-      <div className="bg-color">
+
+      <div className="bg-color making-flex">
         <div>
           <h3> Categories </h3>
         </div>
-        <div>
+        <div className="grid-container container">
           <CategoriesList />
         </div>
       </div>
+
       <div className="third-last-footer ">
         <div className="container">
           <h3 className="para-heading ">
