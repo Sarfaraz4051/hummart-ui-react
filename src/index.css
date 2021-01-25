@@ -12,7 +12,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .container {
@@ -140,31 +141,6 @@ a:active {
   justify-content: space-between;
 }
 
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .info {
   display: flex;
   flex-direction: row;
@@ -197,6 +173,8 @@ a:active {
 .myProductSt {
   display: flex;
   flex-direction: row;
+  border: 5px solid black;
+  justify-content: space-around;
 }
 
 .offer-link {
@@ -224,6 +202,38 @@ a:active {
   border: none;
   font-size: 16px;
   cursor: pointer;
+}
+.cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  color: black;
+  background-color: #f9f9f9;
+  z-index: 1;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cart-header {
+  background-color: #7bae23;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+}
+.cart-content {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  align-items: center;
+}
+.cart-button {
+  width: 80%;
+}
+.cart-div {
+  padding: 10px;
 }
 
 .bg-color {
@@ -306,7 +316,7 @@ a:active {
 .plain-black-link,
 .plain-black-link:hover {
   color: black;
-  text-decoration: none;  
+  text-decoration: none;
 }
 
 .category-item {
@@ -314,34 +324,80 @@ a:active {
   margin: 20px;
   display: flex;
   align-items: center;
-   
 }
 
 .grid-container {
   display: grid;
-  
   grid-template-columns: auto auto;
 }
 .grid-item {
   background-color: #f9f9f9;
   font-size: 14px;
   text-align: center;
-  margin :10px;
+  margin: 10px;
 }
 
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /* For desktop: */
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */

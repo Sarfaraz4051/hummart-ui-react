@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import '../index.css';
 
 const Offer = (props) => {
+    const handleAddItem=()=>{
+        console.log('In Handle Add Item');
+    }
     return (
-        <div >
+        <div className="offer-item">
             <div >
                 <Link to="#" className="offer-link">
                     <img src={`offers/${props.obj.img_src}`} className="offers-images" alt="Offer_image" />
@@ -20,9 +23,9 @@ const Offer = (props) => {
                     <del>{props.obj.old_price}</del>{props.obj.new_price}
                 </div>
                 <div>
-                    <button className="button4">
+                    <button className="button4" onClick={handleAddItem}>
                         ADD TO CART
-                </button>
+                    </button>
                 </div>
             </div>
         </div>

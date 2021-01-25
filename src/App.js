@@ -10,14 +10,13 @@ import { offers_data, categories_data } from "./data";
 const CategoriesList = () => {
   return getLocalStorageData("categories").map((category, index) => {
     return <Category key={index} obj={category} />;
-
   });
 };
 
 const App = () => {
   setLocalStorageData("myoffers", offers_data);
   setLocalStorageData("categories", categories_data);
-
+ 
   return (
     <div className="App">
       <Header />
@@ -26,9 +25,11 @@ const App = () => {
           <h3>NEW BUNDLE OFFERS </h3>
         </div>
         <div className="myProductSt">
-          {getLocalStorageData("myoffers").map((offer, index) => {
-            return <Offer key={index} obj={offer} />;
-          })}
+          {
+            getLocalStorageData("myoffers").map((offer, index) => {
+              return <Offer key={index} obj={offer} />;
+            })
+          }
         </div>
       </div>
 
