@@ -10,15 +10,10 @@ import hummartLogo from '../images/humlogo.png';
 import toysGif from '../images/Toys_Gif.gif';
 import pic1 from '../images/pic1.jpg';
 import pic2 from '../images/pic2.jpg';
-import Cart from './cart'
 
-const Header = () => {
+
+const Header = (props) => {
     const [showinfo, setShowinfo] = useState(false);
-    const [showCart, setShowCart] = useState(false);
-    
-    const offShowCart=()=>{
-        setShowCart(false);
-    }
 
     return (
         <>
@@ -45,11 +40,8 @@ const Header = () => {
                     <img src={toysGif} alt="Toys Giff" />
                 </div>
                 <div className="cart-icon">
-                    <AiOutlineShoppingCart onClick={()=>{setShowCart(true)}} />
-                    
-                    { showCart &&
-                        <Cart handleShowCart={offShowCart}/>
-                    }
+                    <AiOutlineShoppingCart onClick={props.HandleshowCart} />
+                    <span className="cart-icon-bage">{props.cartItems.length}</span>
                 </div>
             </div>
             <div className="container">

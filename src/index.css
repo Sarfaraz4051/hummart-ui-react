@@ -56,8 +56,21 @@ a:active {
 }
 
 .cart-icon {
-  font-size: 36px;
+  font-size: 36px;cursor: pointer;
   color: #7bae23;
+  position: relative;
+  
+  
+} 
+.cart-icon-bage{
+  padding: 3px 6px;
+  position: absolute;
+  font-size: 12px;
+  color:white;
+  background-color:  rgb(223, 86, 22);
+  border-radius:50%;
+  right:-5px;
+  top:5px;
 }
 
 .nav-upper input[type="text"] {
@@ -173,7 +186,6 @@ a:active {
 .myProductSt {
   display: flex;
   flex-direction: row;
-  border: 5px solid black;
   justify-content: space-around;
 }
 
@@ -215,11 +227,12 @@ a:active {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: scroll;
+  font-size:24px;
 }
 .cart-header {
   background-color: #7bae23;
   color: white;
-
   display: flex;
   justify-content: space-between;
 }
@@ -228,6 +241,14 @@ a:active {
   flex-direction: column;
   font-size: 20px;
   align-items: center;
+  
+}
+.display-row{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+
 }
 .cart-button {
   width: 80%;
@@ -235,7 +256,17 @@ a:active {
 .cart-div {
   padding: 10px;
 }
-
+.cart-item-image{
+width:100px;
+height:100px;
+}
+.item-in-cart{
+  font-size: 15px;
+}
+.item-in-cart > ul>li{
+  list-style-type: none;
+  background-color: white;
+}
 .bg-color {
   background-color: #f9f9f9;
 }

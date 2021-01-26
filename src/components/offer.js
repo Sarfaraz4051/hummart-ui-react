@@ -2,10 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../index.css';
 
-const Offer = (props) => {
-    const handleAddItem=()=>{
-        console.log('In Handle Add Item');
-    }
+const Offer = (props) => { 
     return (
         <div className="offer-item">
             <div >
@@ -23,7 +20,8 @@ const Offer = (props) => {
                     <del>{props.obj.old_price}</del>{props.obj.new_price}
                 </div>
                 <div>
-                    <button className="button4" onClick={handleAddItem}>
+                    <button className="button4" onClick={()=>{
+                        props.handleClick(props.obj)}}>
                         ADD TO CART
                     </button>
                 </div>
