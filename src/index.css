@@ -354,8 +354,8 @@ a:active {
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
+  justify-content: space-evenly;
 }
 .grid-item {
   background-color: #f9f9f9;

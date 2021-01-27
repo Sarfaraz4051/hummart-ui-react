@@ -7,11 +7,34 @@ import Cart from "./components/cart";
 import { setLocalStorageData, getLocalStorageData } from "./service";
 import { offers_data, categories_data } from "./data";
 
+// const CategoriesList = () => {
+//   return (
+//     getLocalStorageData("categories").map((category, index) => {
+//     return <Category key={index} obj={category} />;
+//     })//end map
+//   )
+// };
+
 const CategoriesList = () => {
-  return getLocalStorageData("categories").map((category, index) => {
-    return <Category key={index} obj={category} />;
+  const limit = 3;
+  let arr = getLocalStorageData("categories"),
+    arr2 = [];
+  for (let i = 0; i < arr.length; i += limit) {
+    arr2.push(arr.slice(i, i + limit));
+  }
+  return arr2.map((category, index) => {
+    console.log(category);
+    return (
+      <div className="grid-container">
+        {category.map((cate, index) => {
+          return <Category key={index} obj={cate} />;
+        })}
+      </div>
+    );
   });
 };
+
+//
 
 const App = () => {
   setLocalStorageData("myoffers", offers_data);
@@ -54,9 +77,9 @@ const App = () => {
 
       <div className="bg-color making-flex">
         <div>
-          <h3> Categories </h3>
+          <h3 className="container"> Categories </h3>
         </div>
-        <div className="grid-container container">
+        <div className="container">
           <CategoriesList />
         </div>
       </div>
