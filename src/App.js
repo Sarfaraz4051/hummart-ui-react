@@ -7,34 +7,22 @@ import Cart from "./components/cart";
 import { setLocalStorageData, getLocalStorageData } from "./service";
 import { offers_data, categories_data } from "./data";
 
-// const CategoriesList = () => {
-//   return (
-//     getLocalStorageData("categories").map((category, index) => {
-//     return <Category key={index} obj={category} />;
-//     })//end map
-//   )
-// };
 
 const CategoriesList = () => {
-  const limit = 3;
-  let arr = getLocalStorageData("categories"),
-    arr2 = [];
-  for (let i = 0; i < arr.length; i += limit) {
-    arr2.push(arr.slice(i, i + limit));
-  }
-  return arr2.map((category, index) => {
-    console.log(category);
-    return (
+  const limit = 2;
+  let categories = getLocalStorageData("categories"),
+  arr2 = [];
+  for (let i = 0; i < categories.length; i += limit) {
+    arr2.push(
       <div className="grid-container">
-        {category.map((cate, index) => {
+        {categories.slice(i, i + limit).map((cate, index) => {
           return <Category key={index} obj={cate} />;
         })}
       </div>
     );
-  });
+  }
+  return arr2;
 };
-
-//
 
 const App = () => {
   setLocalStorageData("myoffers", offers_data);
@@ -47,9 +35,20 @@ const App = () => {
     setShowCart(!showCart);
   };
 
+
   const handleRemove = (id) => {
-    console.log("id is " + id);
+    
+    setcartArray((old_tasks) => {
+      console.log("id is " + id);
+      console.log(old_tasks);
+      old_tasks.splice(id,1);
+
+      console.log(old_tasks);
+
+      return [...old_tasks];
+    });
   };
+
   const addInCart = (obj) => {
     setcartArray([...cartArray, obj]);
   };

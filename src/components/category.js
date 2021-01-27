@@ -8,10 +8,13 @@ const Category = (props) => {
       <Link to="#" className="plain-black-link">
         <div className="category-item">
           <div>
-            <img src={`categories/${props.obj.img_url}`} alt="Category-item" />
+            <h5> {props.obj.title} </h5>
           </div>
           <div>
-            <h5> {props.obj.title} </h5>
+            <img src={`categories/${props.obj.img_url}`} alt="Category-item" />
+          </div>
+          
+          <div>
             <p> {props.obj.des} </p>
           </div>
           <div>

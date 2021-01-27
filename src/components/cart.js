@@ -23,6 +23,11 @@ const CartItem = (props) => {
                 </div>
               </div>
               <div>{i.new_price}</div>
+              <div>
+                <span className="add-drop" onClick="">+</span> 1
+                <span className="add-drop" onClick="">-</span>
+                 
+              </div>
             </li>
           );
         })}
