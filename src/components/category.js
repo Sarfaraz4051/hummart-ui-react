@@ -13,7 +13,7 @@ const Category = (props) => {
           <div>
             <img src={`categories/${props.obj.img_url}`} alt="Category-item" />
           </div>
-          
+
           <div>
             <p> {props.obj.des} </p>
           </div>
