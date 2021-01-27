@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import "./App.css";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import Offer from "./components/offer";
 import Category from "./components/category";
-import Cart from './components/cart';
+import Cart from "./components/cart";
 import { setLocalStorageData, getLocalStorageData } from "./service";
 import { offers_data, categories_data } from "./data";
 
@@ -14,32 +13,35 @@ const CategoriesList = () => {
   });
 };
 
-
 const App = () => {
   setLocalStorageData("myoffers", offers_data);
   setLocalStorageData("categories", categories_data);
-  
-  const  [cartArray,setcartArray] = useState([]);
+
+  const [cartArray, setcartArray] = useState([]);
   const [showCart, setShowCart] = useState(false);
 
-  const HandleshowCart =()=>{
-    setShowCart(!showCart)
-  }
-  
-  const handleRemove=()=>{
-    
-  }
-  const addInCart = (obj) => {
-    setcartArray([...cartArray, obj])
+  const HandleshowCart = () => {
+    setShowCart(!showCart);
   };
-  
+
+  const handleRemove = (id) => {
+    console.log("id is " + id);
+  };
+  const addInCart = (obj) => {
+    setcartArray([...cartArray, obj]);
+  };
+
   return (
     <div className="App">
-      <Header cartItems={cartArray} HandleshowCart={HandleshowCart}/>
+      <Header cartItems={cartArray} HandleshowCart={HandleshowCart} />
       <div className="bundle-offers">
-      { showCart &&
-          <Cart handleShowCart={HandleshowCart} cartItems={cartArray} handleRemove={handleRemove}/>
-      }
+        {showCart && (
+          <Cart
+            handleShowCart={HandleshowCart}
+            cartItems={cartArray}
+            handleRem={handleRemove}
+          />
+        )}
         <div>
           <h3>NEW BUNDLE OFFERS </h3>
         </div>
@@ -94,5 +96,4 @@ const App = () => {
     </div>
   );
 };
-
 export default App;

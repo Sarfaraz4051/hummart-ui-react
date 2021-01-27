@@ -16,16 +16,13 @@ const CartItem = (props) => {
                     alt={index}
                   />
                 </div>
+                <div>{i.title}</div>
                 <div>
-                  {i.title}
-                </div>
-                <div>
-                  <AiFillCloseCircle onClick={props.handleRemove(id)} />
+                  <AiFillCloseCircle onClick={()=>{
+                    props.handleRemove(index)}} />
                 </div>
               </div>
-              <div>
-                {i.new_price}
-              </div>
+              <div>{i.new_price}</div>
             </li>
           );
         })}
@@ -36,44 +33,42 @@ const CartItem = (props) => {
 
 const Cart = (props) => {
   const [cartButton, setcartButton] = useState("Start Shopping");
- 
+
   useEffect(() => {
-      if(props.cartItems.length>0){
-        setcartButton("Proceed to Checkout");
-      }
-      else{
-        setcartButton("Start Shopping");
-      }
+    if (props.cartItems.length > 0) {
+      setcartButton("Proceed to Checkout");
+    } else {
+      setcartButton("Start Shopping");
+    }
   }, [props.cartItems.length]);
 
   return (
     <div className="cart">
-        <div className="cart-header">
-            <div>
-                <h2>My Cart</h2>
-            </div>
-            <div>
-                <AiFillCloseCircle onClick={props.handleShowCart} />
-            </div>
+      <div className="cart-header">
+        <div>
+          <h2>My Cart</h2>
         </div>
+        <div>
+          <AiFillCloseCircle onClick={props.handleShowCart} />
+        </div>
+      </div>
 
-        {!props.cartItems[0] && (
+      {!props.cartItems[0] && (
         <div className="cart-content">
-            <div>
-                <h4>No items in your cart</h4>
-            </div>
-            <div>
-                <p>Your favourite items are just a click away.</p>
-            </div>
+          <div>
+            <h4>No items in your cart</h4>
+          </div>
+          <div>
+            <p>Your favourite items are just a click away.</p>
+          </div>
         </div>
-        )}
+      )}
 
-        {
-            props.cartItems[0] &&
-            <div>
-                <CartItem items={props.cartItems} />
-            </div>
-        }
+      {props.cartItems[0] && (
+        <div>
+          <CartItem items={props.cartItems} handleRemove={props.handleRem} />
+        </div>
+      )}
 
       <div className="cart-div">
         <button className="button4 cart-button">{cartButton}</button>
