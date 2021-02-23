@@ -6,14 +6,16 @@ import Category from "./components/category";
 import Cart from "./components/cart";
 import { setLocalStorageData, getLocalStorageData } from "./service";
 import { offers_data, categories_data, para } from "./data";
+import { useDispatch, useSelector } from "react-redux";
+import { AddItem, DeleteItem, IncreaseQuantity } from "./action";
 
 const CategoriesList = (props) => {
   const limit = props.limitt;
   let categories = props.categories,
-    arr2 = [];
+    categories_chuck = [];
 
   for (let i = 0; i < categories.length; i += limit) {
-    arr2.push(
+    categories_chuck.push(
       <div className="grid-container">
         {categories.slice(i, i + limit).map((cate, index) => {
           return <Category key={index} obj={cate} />;
@@ -21,41 +23,47 @@ const CategoriesList = (props) => {
       </div>
     );
   }
-  return arr2;
+  return categories_chuck;
 };
 
 const App = () => {
   setLocalStorageData("myoffers", offers_data);
   setLocalStorageData("categories", categories_data);
-  const [cartArray, setcartArray] = useState([]);
   const [showCart, setShowCart] = useState(false);
+  const dispatch = useDispatch();
+  const cart_items = useSelector((state) => state.cart_items_array);
 
   const HandleshowCart = () => {
     setShowCart(!showCart);
   };
 
   const handleRemove = (id) => {
-    setcartArray((old_tasks) => {
-      console.log("id is " + id);
-      console.log(old_tasks);
-      old_tasks.splice(id, 1);
-      console.log(old_tasks);
-      return [...old_tasks];
-    });
+    cart_items.splice(id, 1);
+    dispatch(DeleteItem(cart_items));
   };
 
   const addInCart = (obj) => {
-    setcartArray([...cartArray, obj]);
+    let index = cart_items.findIndex((o) => {
+      return o.p_id === obj.p_id;
+    });
+    console.log(index);
+    if (index === -1) {
+      dispatch(AddItem(obj));
+    } else {
+      cart_items[index].quantity++;
+      cart_items.splice(index, 1, cart_items[index]);
+      dispatch(IncreaseQuantity(cart_items));
+    }
   };
 
   return (
     <div className="App">
-      <Header cartItems={cartArray} HandleshowCart={HandleshowCart} />
+      <Header cartItems={cart_items} HandleshowCart={HandleshowCart} />
       <div className="bundle-offers">
         {showCart && (
           <Cart
             handleShowCart={HandleshowCart}
-            cartItems={cartArray}
+            cartItems={cart_items}
             handleRem={handleRemove}
           />
         )}

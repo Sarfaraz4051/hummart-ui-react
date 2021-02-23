@@ -1,13 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-
+import { IncreaseQuantity, DecreaseQuantity } from "../action";
+import { useDispatch, useSelector } from "react-redux";
+// import { handleInc, handleDec } from '../util'
 const CartItem = (props) => {
+  const cart_items = useSelector((state) => state.cart_items_array);
+  const dispatch = useDispatch();
+
+  const findItemIndex = (arg) => {
+    let index = -1;
+    index = cart_items.findIndex((i) => {
+      return arg.p_id === i.p_id;
+    });
+    return index;
+  };
+
+  const handleInc = (arg) => {
+    arg.quantity++;
+    let item_index = findItemIndex(arg);
+    cart_items.splice(item_index, 1, arg);
+    dispatch(IncreaseQuantity(cart_items));
+  };
+
+  const handleDec = (arg) => {
+    let item_index = findItemIndex(arg);
+    if (arg.quantity > 1) {
+      arg.quantity--;
+      cart_items.splice(item_index, 1, arg);
+    } else {
+      cart_items.splice(item_index, 1);
+    }
+    dispatch(DecreaseQuantity(cart_items));
+  };
+
   return (
     <div className="item-in-cart">
       <ul>
-        {props.items.map((i, index) => {
+        {cart_items.map((i, index) => {
           return (
-            <li key={index}>
+            <li key={i.p_id}>
               <div className="display-row">
                 <div>
                   <img
@@ -27,13 +58,23 @@ const CartItem = (props) => {
               </div>
               <div>{i.new_price}</div>
               <div>
-                <span className="add-drop" onClick="">
-                  +
-                </span>{" "}
-                1
-                <span className="add-drop" onClick="">
+                <button
+                  className="add-drop"
+                  onClick={() => {
+                    handleDec(i);
+                  }}
+                >
                   -
-                </span>
+                </button>
+                {i.quantity}
+                <button
+                  className="add-drop"
+                  onClick={() => {
+                    handleInc(i);
+                  }}
+                >
+                  +
+                </button>
               </div>
             </li>
           );
@@ -45,14 +86,13 @@ const CartItem = (props) => {
 
 const Cart = (props) => {
   const [cartButton, setcartButton] = useState("Start Shopping");
+  const cart_items = useSelector((state) => state.cart_items_array);
 
   useEffect(() => {
-    if (props.cartItems.length > 0) {
-      setcartButton("Proceed to Checkout");
-    } else {
-      setcartButton("Start Shopping");
-    }
-  }, [props.cartItems.length]);
+    cart_items.length > 0
+      ? setcartButton("Proceed to Checkout")
+      : setcartButton("Start Shopping");
+  }, [cart_items.length]);
 
   return (
     <div className="cart">
@@ -65,7 +105,7 @@ const Cart = (props) => {
         </div>
       </div>
 
-      {!props.cartItems[0] && (
+      {!cart_items[0] && (
         <div className="cart-content">
           <div>
             <h4>No items in your cart</h4>
@@ -76,9 +116,9 @@ const Cart = (props) => {
         </div>
       )}
 
-      {props.cartItems[0] && (
+      {cart_items[0] && (
         <div>
-          <CartItem items={props.cartItems} handleRemove={props.handleRem} />
+          <CartItem items={cart_items} handleRemove={props.handleRem} />
         </div>
       )}
 

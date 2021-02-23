@@ -29,7 +29,8 @@ const Header = (props) => {
         <AiOutlinePhone />
         (021) 111 116 278
         <Link to="#">Customer Care</Link>
-        <Link to="#">Login</Link>
+        <Link to="/Login">Login</Link>
+        <Link to="/SignUp">SignUP</Link>
       </div>
 
       <div className="nav-upper container">
@@ -88,7 +89,10 @@ const Header = (props) => {
                   setShowinfo(true);
                 }}
                 onMouseOut={() => {
-                  setShowinfo(false);
+                  setTimeout(() => {
+                    setShowinfo(false);  
+                  }, 500);
+                  
                 }}
               >
                 MORE

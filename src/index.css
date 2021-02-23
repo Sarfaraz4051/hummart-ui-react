@@ -95,17 +95,17 @@ a:active {
 
 .nav-header {
   background-color: #7bae23;
-  color: white;
-  font-size: smaller;
-  padding: 2px;
+  color: #ffffff;
+  font-size: small;
+  
   margin-bottom: 5px;
 }
 
 .nav-bar-links {
   list-style-type: none;
-  padding: 0px;
+  padding: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .plain-white-link,
@@ -404,7 +404,15 @@ a:active {
   animation-name: fade;
   animation-duration: 1.5s;
 }
-
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #7bae23;
+}
+.error-msg{
+  color:red;
+}
 @-webkit-keyframes fade {
   from {
     opacity: 0.4;
