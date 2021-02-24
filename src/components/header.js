@@ -14,10 +14,22 @@ import hummartLogo from "../images/humlogo.png";
 import toysGif from "../images/Toys_Gif.gif";
 import pic1 from "../images/pic1.jpg";
 import pic2 from "../images/pic2.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { getLocalStorageString, getLocalStorageUserData } from "../service";
+import { UpdateToken } from "../action";
 
 const Header = (props) => {
+  let userName;
+  if(getLocalStorageString("token")){
+    userName=getLocalStorageUserData("users_data")[getLocalStorageString("token")].fname;
+    userName+=" ";
+    userName+=getLocalStorageUserData("users_data")[getLocalStorageString("token")].lname
+  }
+  
   const [showinfo, setShowinfo] = useState(false);
-
+  const isLogin = useSelector((state) => state.token);
+  const dispatch= useDispatch();
+  
   return (
     <>
       <div className="upperbar">
@@ -29,8 +41,21 @@ const Header = (props) => {
         <AiOutlinePhone />
         (021) 111 116 278
         <Link to="#">Customer Care</Link>
+        {!isLogin && <>
         <Link to="/Login">Login</Link>
-        <Link to="/SignUp">SignUP</Link>
+        <Link to="/Signup">SignUP</Link>
+        </>}
+        
+        {isLogin && <><Link to="/" >{userName}</Link>     
+          <Link
+            to="#"
+            onClick={() => {
+              localStorage.removeItem("token");
+              dispatch(UpdateToken(!isLogin));
+            }}
+          >Logout</Link>
+        </>
+        }
       </div>
 
       <div className="nav-upper container">
@@ -90,9 +115,8 @@ const Header = (props) => {
                 }}
                 onMouseOut={() => {
                   setTimeout(() => {
-                    setShowinfo(false);  
+                    setShowinfo(false);
                   }, 500);
-                  
                 }}
               >
                 MORE

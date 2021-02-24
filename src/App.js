@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AddItem, DeleteItem, IncreaseQuantity } from "./action";
 
 const CategoriesList = (props) => {
-  const limit = props.limitt;
+  const limit = 4;
   let categories = props.categories,
     categories_chuck = [];
 
@@ -32,6 +32,7 @@ const App = () => {
   const [showCart, setShowCart] = useState(false);
   const dispatch = useDispatch();
   const cart_items = useSelector((state) => state.cart_items_array);
+  //const isLogin = useSelector((state) => state.token);
 
   const HandleshowCart = () => {
     setShowCart(!showCart);

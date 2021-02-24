@@ -1,3 +1,10 @@
+export const UpdateToken = (payload) => {
+  return {
+    type: "UPDATE_TOKEN",
+    payload,
+  };
+};
+
 export const AddItem = (payload) => ({
   type: "ADD_ITEM_IN_CART",
   payload,

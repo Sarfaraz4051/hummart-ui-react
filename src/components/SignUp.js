@@ -1,10 +1,15 @@
 import React, { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { UpdateToken } from "../action";
 import "../index.css";
-import { getLocalStorageUserData, setLocalStorageUserData } from "../service";
+import { getLocalStorageUserData, setLocalStorageUserData,setLocalStorageString } from "../service";
 
 const SignUp = () => {
   const passwordText = useRef("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [taskDone, settaskDone] = useState(false);
+  const dispatch = useDispatch();  
   const [user, setUser] = useState({
     fname: false,
     lname: false,
@@ -71,37 +76,31 @@ const SignUp = () => {
       password: e.target.password.value,
       confirmPassword: e.target.confirmPassword.value,
     };
-
     const valid = checkField(updatedUser);
 
     if (valid) {
-      console.log("yesh...!");
-
-      let users_data = [], email;
-
-      if (getLocalStorageUserData("users_data")) {
-        users_data = [...getLocalStorageUserData("users_data")];
-        email = users_data.find((user) => {
-          return Object.keys(user) + "" === updatedUser.email;
-        });
+      let usersData = {};
+      const storeData = getLocalStorageUserData("users_data");
+      
+      if (storeData) {
+        usersData = { ...storeData };
       }
-
-      console.log("email: ", email);
-      if (!email) {
-        users_data.push({ [updatedUser.email]: updatedUser });
-        setLocalStorageUserData("users_data", users_data);
+      if (usersData[updatedUser.email]) {
+        alert("User Already Exist");
       } else {
-        alert("User Already Exist...!");
+        usersData = { ...usersData, [updatedUser.email]: updatedUser };
+        setLocalStorageUserData("users_data", usersData);
+        setLocalStorageString('token',updatedUser.email);
+        dispatch(UpdateToken(true));
+        settaskDone(true);
       }
-
-      console.log(getLocalStorageUserData("users_data"));
-    } else {
+    }else{
       console.log("Requirements not fulfilled ");
       passwordText.current.focus();
     }
   };
 
-  return (
+  return taskDone ? (<Redirect to="/" />):(
     <div>
       <form onSubmit={SetData}>
         <div className="form">

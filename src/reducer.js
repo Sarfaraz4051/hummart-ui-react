@@ -1,5 +1,8 @@
+import { getLocalStorageString } from "./service";
+
 let initialState = {
   cart_items_array: [],
+  token:getLocalStorageString('token'),
 };
 
 export const CartReducer = (state = initialState, action) => {
@@ -18,6 +21,10 @@ export const CartReducer = (state = initialState, action) => {
 
     case "DECREASE_ITEM_QUANTITY":
       state.cart_items_array = [...action.payload];
+      return state;
+
+    case "UPDATE_TOKEN":
+      state.token = !state.token;
       return state;
 
     default:
